@@ -1,0 +1,48 @@
+ mission "stocks"
+	name "buy some stocks from a guy who lives here"
+	description "you saw a billboard advertising to buy some stocks from someones new company ."
+
+
+	on accept
+		payment -5000
+        "salary: bussisness" = 250
+        complete "stocks"
+ mission "stocks2"
+	name "buy some stocks from a guy who lives here"
+	description "you saw a billboard advertising to buy some stocks from someones new company ."
+	to offer
+		has "stocks: done"
+
+	on accept
+		payment -50000
+        "salary: bussisness" =+ 2500
+        complete "stocks2"
+ mission "buy company"
+	name "buy the remaining stocks from that persons company "
+	description "that someone has retired and made you the offer to buy the remaining stocks ."
+    to offer
+    has "stocks2: done"
+
+	on accept
+		payment -50000
+        "salary: bussisness" =+ 25000
+        complete "buy company"
+mission "expand company"
+	name "expand your company "
+	description "you get a opportunity to expand your company ."
+    to offer
+    has "buy company: done"
+
+	on accept
+		payment -100000
+        "salary: bussisness" =+ 50000
+        complete "expand company"
+
+
+
+
+
+
+
+
+
